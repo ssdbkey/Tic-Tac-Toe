@@ -1,0 +1,22 @@
+[package]
+name = "tic-tac-toe"
+version = "0.1.0"
+edition = "2018"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# for quicker tests, cargo testing --lib
+# for more explicit tests, cargo testing --features=backtraces
+backtraces = ["cosmwasm-std/backtraces"]
+
+[dependencies]
+cosmwasm-std = { version = "1.1.5" }
+cw-storage-plus = { version = "0.16.0" } 
+schemars = "0.8.11"
+serde = { version = "1.0.147", default-features = false, features = ["derive"] }
+tic_tac_toe = { version = "0.1.0", path = "../../packages/tic_tac_toe" }
